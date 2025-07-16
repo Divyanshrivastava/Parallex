@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Metal+Mania&display=swap');
+
+@import "tailwindcss";
+
+@font-face {
+    font-family: "NewRocker";
+    src: url("./NewRocker-Regular.ttf")
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    font-family: "NewRocker";
+    background-color: #000;
+}
