@@ -13,3 +13,40 @@ html, body{
     font-family: "NewRocker";
     background-color: #000;
 }
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-20px) rotate(180deg); 
+  }
+}
+
+.particles div {
+  animation: float 4s ease-in-out infinite;
+}
+
+html {
+  cursor: none;
+}
+
+/* Additional enhancements you might want to add */
+* {
+  cursor: none !important;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but keep functionality */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
