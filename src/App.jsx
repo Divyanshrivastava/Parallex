@@ -62,34 +62,38 @@ const App = () => {
     // Initial entrance animations with stagger
     const tl = gsap.timeline();
     
-    tl.to(".main", {
-      scale: 1,
-      rotate: 0,
-      duration: 2,
-      delay: -1,
-      ease: "Expo.easeInOut",
-    })
-    tl.to(".sky", {
+       tl.to(".main", {
+  scale: 1,
+  rotate: 0,
+  duration: 1.5,
+  ease: "expo.inOut",
+});
+
+// 2. Start sky just before main ends (overlap)
+tl.to(".sky", {
   scale: 1.1,
   rotate: 0,
-  duration: 2,
-  ease: "Expo.easeInOut",
-})
-.to([".bg", ".character"], {
+  duration: 1.5,
+  ease: "expo.inOut",
+}, "-=1.2");
+
+// 3. Bring in bg and character together, overlapping sky
+tl.to([".bg", ".character"], {
   scale: (i, el) => el.classList.contains("character") ? 0.6 : 1,
   x: (i, el) => el.classList.contains("character") ? "-50%" : 0,
   bottom: (i, el) => el.classList.contains("character") ? "-30%" : undefined,
   rotate: 0,
-  duration: 2,
-  ease: "Expo.easeInOut",
-}, "-=1.5");
-    gsap.to(".text", {
-      scale: 1,
-      rotate: 0,
-      duration: 2,
-      delay: -0.8,
-      ease: "Expo.easeInOut",
-    });
+  duration: 1.5,
+  ease: "expo.inOut",
+}, "-=1.3");
+
+// 4. Text fade/scale - overlap character entry
+tl.to(".text", {
+  scale: 1,
+  rotate: 0,
+  duration: 1.5,
+  ease: "expo.inOut",
+}, "-=1.2");
 
     // Enhanced parallax mousemove with boundaries
     const main = mainRef.current;
